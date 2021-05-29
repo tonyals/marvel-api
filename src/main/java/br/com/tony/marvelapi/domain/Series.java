@@ -11,6 +11,26 @@ public class Series {
     private Integer available;
     private Integer returned;
     private String collectionURI;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.PERSIST)
     private List<SeriesSummary> items;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Integer getAvailable() {
+        return available;
+    }
+
+    public Integer getReturned() {
+        return returned;
+    }
+
+    public String getCollectionURI() {
+        return collectionURI;
+    }
+
+    public List<SeriesSummary> getItems() {
+        return items;
+    }
 }

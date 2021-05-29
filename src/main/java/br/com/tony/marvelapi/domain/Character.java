@@ -1,5 +1,7 @@
 package br.com.tony.marvelapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,17 +14,76 @@ public class Character {
     private String name;
     private String description;
     private LocalDateTime modified;
-    private String resourceUri;
-    @OneToOne
+    private String resourceURI;
+
+    @OneToOne(cascade=CascadeType.PERSIST)
     private Image thumbnail;
-    @OneToMany
+
+    @OneToMany(cascade=CascadeType.PERSIST)
+    @JsonProperty("urls")
     private List<Url> urls;
-    @OneToMany
-    private List<Comic> comicList;
-    @OneToMany
-    private List<Story> storyList;
-    @OneToMany
-    private List<Event> eventList;
-    @OneToMany
-    private List<Series> seriesList;
+
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JsonProperty("comics")
+    private Comic comic;
+
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JsonProperty("stories")
+    private Story story;
+
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JsonProperty("events")
+    private Event event;
+
+    @OneToOne(cascade=CascadeType.PERSIST)
+    @JsonProperty("series")
+    private Series series;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getModified() {
+        return modified;
+    }
+
+    public String getResourceUri() {
+        return resourceURI;
+    }
+
+    public Image getThumbnail() {
+        return thumbnail;
+    }
+
+    public List<Url> getUrls() {
+        return urls;
+    }
+
+    public String getResourceURI() {
+        return resourceURI;
+    }
+
+    public Comic getComic() {
+        return comic;
+    }
+
+    public Story getStory() {
+        return story;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public Series getSeries() {
+        return series;
+    }
 }
