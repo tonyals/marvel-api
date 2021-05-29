@@ -55,10 +55,6 @@ public class Character {
         return modified;
     }
 
-    public String getResourceUri() {
-        return resourceURI;
-    }
-
     public Image getThumbnail() {
         return thumbnail;
     }
