@@ -2,15 +2,15 @@ package br.com.tony.marvelapi.dto.converters;
 
 import br.com.tony.marvelapi.domain.Event;
 import br.com.tony.marvelapi.domain.EventSummary;
-import br.com.tony.marvelapi.dto.response.EventResponse;
+import br.com.tony.marvelapi.dto.response.EventList;
 import br.com.tony.marvelapi.dto.response.EventSummaryResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public final class EventConverter {
-    public static EventResponse fromEventToEventResponse(Event event) {
-        return new EventResponse(
+    public static EventList fromEventToEventResponse(Event event) {
+        return new EventList(
                 event.getItems().size(),
                 event.getItems().size(),
                 event.getCollectionURI(),

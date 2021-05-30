@@ -25,16 +25,16 @@ public final class CharacterResponse {
     private final String resourceURI;
 
     @JsonProperty(value = "comics")
-    private final ComicResponse comicResponse;
+    private final ComicList comicList;
 
     @JsonProperty(value = "series")
-    private final SeriesResponse seriesResponse;
+    private final SeriesList seriesList;
 
     @JsonProperty(value = "stories")
-    private final StoryResponse storyResponse;
+    private final StoryList storyList;
 
     @JsonProperty(value = "events")
-    private final EventResponse eventResponse;
+    private final EventList eventList;
 
     @JsonProperty(value = "urls")
     private final List<UrlResponse> urlResponses;
@@ -46,10 +46,10 @@ public final class CharacterResponse {
         this.resourceURI = builder.resourceURI;
         this.imageResponse = builder.imageResponse;
         this.urlResponses = builder.urlResponses;
-        this.comicResponse = builder.comicResponse;
-        this.storyResponse = builder.storyResponse;
-        this.eventResponse = builder.eventResponse;
-        this.seriesResponse = builder.seriesResponse;
+        this.comicList = builder.comicList;
+        this.storyList = builder.storyList;
+        this.eventList = builder.eventList;
+        this.seriesList = builder.seriesList;
     }
 
     public Long getId() {
@@ -80,20 +80,20 @@ public final class CharacterResponse {
         return urlResponses;
     }
 
-    public ComicResponse getComicResponse() {
-        return comicResponse;
+    public ComicList getComicList() {
+        return comicList;
     }
 
-    public StoryResponse getStoryResponse() {
-        return storyResponse;
+    public StoryList getStoryList() {
+        return storyList;
     }
 
-    public EventResponse getEventResponse() {
-        return eventResponse;
+    public EventList getEventList() {
+        return eventList;
     }
 
-    public SeriesResponse getSeriesResponse() {
-        return seriesResponse;
+    public SeriesList getSeriesList() {
+        return seriesList;
     }
 
     public static class Builder {
@@ -103,10 +103,10 @@ public final class CharacterResponse {
         private String resourceURI;
         private ImageResponse imageResponse;
         private List<UrlResponse> urlResponses;
-        private ComicResponse comicResponse;
-        private StoryResponse storyResponse;
-        private EventResponse eventResponse;
-        private SeriesResponse seriesResponse;
+        private ComicList comicList;
+        private StoryList storyList;
+        private EventList eventList;
+        private SeriesList seriesList;
 
         public Builder id(Long id) {
             this.id = id;
@@ -138,23 +138,23 @@ public final class CharacterResponse {
             return this;
         }
 
-        public Builder comicResponse(ComicResponse comicResponse) {
-            this.comicResponse = comicResponse;
+        public Builder comicList(ComicList comicList) {
+            this.comicList = comicList;
             return this;
         }
 
-        public Builder storyResponse(StoryResponse storyResponse) {
-            this.storyResponse = storyResponse;
+        public Builder storyList(StoryList storyList) {
+            this.storyList = storyList;
             return this;
         }
 
-        public Builder eventResponse(EventResponse eventResponse) {
-            this.eventResponse = eventResponse;
+        public Builder eventList(EventList eventList) {
+            this.eventList = eventList;
             return this;
         }
 
-        public Builder seriesResponse(SeriesResponse seriesResponse) {
-            this.seriesResponse = seriesResponse;
+        public Builder seriesList(SeriesList seriesList) {
+            this.seriesList = seriesList;
             return this;
         }
 

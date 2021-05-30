@@ -2,15 +2,15 @@ package br.com.tony.marvelapi.dto.converters;
 
 import br.com.tony.marvelapi.domain.Series;
 import br.com.tony.marvelapi.domain.SeriesSummary;
-import br.com.tony.marvelapi.dto.response.SeriesResponse;
+import br.com.tony.marvelapi.dto.response.SeriesList;
 import br.com.tony.marvelapi.dto.response.SeriesSummaryResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public final class SeriesConverter {
-    public static SeriesResponse fromSeriesToSeriesResponse(Series series) {
-        return new SeriesResponse(
+    public static SeriesList fromSeriesToSeriesResponse(Series series) {
+        return new SeriesList(
                 series.getItems().size(),
                 series.getItems().size(),
                 series.getCollectionURI(),

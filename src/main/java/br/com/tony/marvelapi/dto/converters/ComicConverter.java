@@ -2,15 +2,15 @@ package br.com.tony.marvelapi.dto.converters;
 
 import br.com.tony.marvelapi.domain.Comic;
 import br.com.tony.marvelapi.domain.ComicSummary;
-import br.com.tony.marvelapi.dto.response.ComicResponse;
+import br.com.tony.marvelapi.dto.response.ComicList;
 import br.com.tony.marvelapi.dto.response.ComicSummaryResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public final class ComicConverter {
-    public static ComicResponse fromComicToComicResponse(Comic comic) {
-        return new ComicResponse(
+    public static ComicList fromComicToComicResponse(Comic comic) {
+        return new ComicList(
                 comic.getItems().size(),
                 comic.getItems().size(),
                 comic.getCollectionURI(),

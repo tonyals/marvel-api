@@ -2,13 +2,13 @@ package br.com.tony.marvelapi.dto.response;
 
 import java.util.List;
 
-public final class EventResponse {
+public final class StoryList {
     private final Integer available;
     private final String collectionURI;
-    private final List<EventSummaryResponse> items;
+    private final List<StorySummaryResponse> items;
     private final Integer returned;
 
-    public EventResponse(Integer available, Integer returned, String collectionURI, List<EventSummaryResponse> items) {
+    public StoryList(Integer available, Integer returned, String collectionURI, List<StorySummaryResponse> items) {
         this.available = available;
         this.returned = returned;
         this.collectionURI = collectionURI;
@@ -27,7 +27,7 @@ public final class EventResponse {
         return collectionURI;
     }
 
-    public List<EventSummaryResponse> getItems() {
+    public List<StorySummaryResponse> getItems() {
         return items;
     }
 }
