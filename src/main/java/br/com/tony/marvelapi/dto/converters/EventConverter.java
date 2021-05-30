@@ -1,13 +1,8 @@
 package br.com.tony.marvelapi.dto.converters;
 
 import br.com.tony.marvelapi.domain.Event;
-import br.com.tony.marvelapi.domain.EventSummary;
 import br.com.tony.marvelapi.domain.EventList;
 import br.com.tony.marvelapi.dto.response.EventResponse;
-import br.com.tony.marvelapi.dto.response.EventSummaryResponse;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class EventConverter {
 
@@ -29,7 +24,6 @@ public class EventConverter {
                 .build();
     }
 
-
     public static EventList fromEventToEventList(Event event) {
         return EventList.builder()
                 .available(event.getAvailable())
@@ -37,15 +31,5 @@ public class EventConverter {
                 .collectionURI(event.getCollectionURI())
                 .items(event.getItems())
                 .build();
-    }
-
-    private static List<EventSummaryResponse> fromEventSummaryToEventSummaryResponse(List<EventSummary> eventSummaries) {
-        List<EventSummaryResponse> eventSummaryResponses = new ArrayList<>();
-
-        eventSummaries.forEach(eventSummary -> eventSummaryResponses.add(
-                new EventSummaryResponse(eventSummary.getResourceURI(), eventSummary.getName())
-        ));
-
-        return eventSummaryResponses;
     }
 }
