@@ -1,10 +1,8 @@
 package br.com.tony.marvelapi.resource.wrapper;
 
-import br.com.tony.marvelapi.dto.response.CharacterResponse;
-
 import java.util.List;
 
-public class CharacterDataContainer<T> {
+public class DataContainer<T> {
 
     private final long offset;
     private final int limit;
@@ -12,7 +10,7 @@ public class CharacterDataContainer<T> {
     private final int count;
     private final List<T> results;
 
-    public CharacterDataContainer(long offset, int limit, long total, int count, List<T> results) {
+    public DataContainer(long offset, int limit, long total, int count, List<T> results) {
         this.offset = offset;
         this.limit = limit;
         this.total = total;

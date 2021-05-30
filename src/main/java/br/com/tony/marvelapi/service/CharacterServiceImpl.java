@@ -5,26 +5,17 @@ import br.com.tony.marvelapi.dto.converters.*;
 import br.com.tony.marvelapi.dto.response.*;
 import br.com.tony.marvelapi.exception.NotFoundException;
 import br.com.tony.marvelapi.mocks.CharacterMock;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Service
 public class CharacterServiceImpl implements CharacterService {
 
     @Override
-    public CharacterResponse saveCharacter(Character character) {
-        return null;
-    }
-
-    @Override
-    public Page<CharacterResponse> getAll(Pageable pageable) {
-        return new PageImpl<>(CharacterMock.characters().stream().map(CharacterConverter::fromCharacterToCharacterResponse)
-                .collect(Collectors.toList()), pageable, CharacterMock.characters().size());
+    public List<CharacterResponse> getAll() {
+        return CharacterConverter.fromCharacterToCharacterResponse(CharacterMock.characters());
     }
 
     @Override

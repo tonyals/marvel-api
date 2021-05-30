@@ -3,9 +3,12 @@ package br.com.tony.marvelapi.dto.converters;
 import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class CharacterConverter {
     public static CharacterResponse fromCharacterToCharacterResponse(Character character) {
-        return new CharacterResponse.Builder()
+        return CharacterResponse.builder()
                 .id(character.getId())
                 .name(character.getName())
                 .description(character.getDescription())
@@ -17,5 +20,11 @@ public class CharacterConverter {
                 .eventList(EventConverter.fromEventToEventList(character.getEvent()))
                 .seriesList(SeriesConverter.fromSeriesToSeriesList(character.getSeries()))
                 .build();
+    }
+
+    public static List<CharacterResponse> fromCharacterToCharacterResponse(List<Character> characters) {
+        return characters.stream()
+                .map(CharacterConverter::fromCharacterToCharacterResponse)
+                .collect(Collectors.toUnmodifiableList());
     }
 }

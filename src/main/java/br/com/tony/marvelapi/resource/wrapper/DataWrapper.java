@@ -2,7 +2,7 @@ package br.com.tony.marvelapi.resource.wrapper;
 
 import java.util.UUID;
 
-public class CharacterDataWrapper<T> {
+public class DataWrapper<T> {
     private final int code;
     private final String status;
     private final String copyright = "© 2021 Tony Augusto";
@@ -11,7 +11,7 @@ public class CharacterDataWrapper<T> {
     private final String etag = UUID.randomUUID().toString();
     private final T data;
 
-    public CharacterDataWrapper(int code, String status, T data) {
+    public DataWrapper(int code, String status, T data) {
         this.code = code;
         this.status = status;
         this.data = data;
