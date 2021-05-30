@@ -4,7 +4,8 @@ import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.converters.CharacterConverter;
 import br.com.tony.marvelapi.dto.converters.ComicConverter;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
-import br.com.tony.marvelapi.dto.response.ComicList;
+import br.com.tony.marvelapi.domain.ComicList;
+import br.com.tony.marvelapi.dto.response.ComicResponse;
 import br.com.tony.marvelapi.exception.NotFoundException;
 import br.com.tony.marvelapi.mocks.CharacterMock;
 import br.com.tony.marvelapi.repository.CharacterRepository;
@@ -48,7 +49,7 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public ComicList getByCharacterId(Long characterId) {
+    public ComicResponse getByCharacterId(Long characterId) {
         Predicate<Character> findById = c -> c.getId().compareTo(characterId) == 0;
         Character result = CharacterMock.characters().stream().filter(findById)
                 .findFirst().orElseThrow(() -> new NotFoundException("Não encontrado"));

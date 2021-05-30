@@ -5,9 +5,8 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class StorySummary {
-    private final Long id;
-    private final String resourceURI;
-    private final String name;
+public class TextObject {
     private final String type;
+    private final String language;
+    private final String text;
 }

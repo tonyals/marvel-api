@@ -1,22 +1,12 @@
 package br.com.tony.marvelapi.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
+@Getter
 public class EventSummary {
-    private Long id;
-    private String resourceURI;
-    private String name;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getResourceURI() {
-        return resourceURI;
-    }
-
-    public String getName() {
-        return name;
-    }
+    private final Long id;
+    private final String resourceURI;
+    private final String name;
 }

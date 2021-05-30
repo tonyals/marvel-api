@@ -1,5 +1,9 @@
 package br.com.tony.marvelapi.dto.response;
 
+import br.com.tony.marvelapi.domain.ComicList;
+import br.com.tony.marvelapi.domain.EventList;
+import br.com.tony.marvelapi.domain.SeriesList;
+import br.com.tony.marvelapi.domain.StoryList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;

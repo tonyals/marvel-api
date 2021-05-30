@@ -1,22 +1,12 @@
 package br.com.tony.marvelapi.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 @Builder
+@Getter
 public class Url {
-    private Long id;
-    private String type;
-    private String url;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getUrl() {
-        return url;
-    }
+    private final Long id;
+    private final String type;
+    private final String url;
 }

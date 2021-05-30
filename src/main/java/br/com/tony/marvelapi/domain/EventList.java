@@ -7,10 +7,9 @@ import java.util.List;
 
 @Builder
 @Getter
-public class Story {
-    private final Long id;
+public final class EventList {
     private final Integer available;
-    private final Integer returned;
     private final String collectionURI;
-    private final List<StorySummary> items;
+    private final List<EventSummary> items;
+    private final Integer returned;
 }

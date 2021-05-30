@@ -12,7 +12,7 @@ public final class CharacterConverter {
                 .resourceURI(character.getResourceURI())
                 .imageResponse(ImageConverter.fromImageToImageResponse(character.getThumbnail()))
                 .urlResponses(UrlConverter.fromUrlToUrlResponse(character.getUrls()))
-                .comicList(ComicConverter.fromComicToComicResponse(character.getComic()))
+                .comicList(ComicConverter.fromComicToComicList(character.getComic()))
                 .storyList(StoryConverter.fromStoryToStoryResponse(character.getStory()))
                 .eventList(EventConverter.fromEventToEventResponse(character.getEvent()))
                 .seriesList(SeriesConverter.fromSeriesToSeriesResponse(character.getSeries()))

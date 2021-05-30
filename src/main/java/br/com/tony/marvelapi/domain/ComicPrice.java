@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class Image {
-    private final String path;
-    private final String extension;
+public class ComicPrice {
+    private final String type;
+    private final float price;
 }

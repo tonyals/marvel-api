@@ -1,65 +1,23 @@
 package br.com.tony.marvelapi.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Builder
+@Getter
 public class Character {
-    private Long id;
-    private String name;
-    private String description;
-    private LocalDateTime modified;
-    private String resourceURI;
-    private Image thumbnail;
-    private List<Url> urls;
-    private Comic comic;
-    private Story story;
-    private Event event;
-    private Series series;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public LocalDateTime getModified() {
-        return modified;
-    }
-
-    public Image getThumbnail() {
-        return thumbnail;
-    }
-
-    public List<Url> getUrls() {
-        return urls;
-    }
-
-    public String getResourceURI() {
-        return resourceURI;
-    }
-
-    public Comic getComic() {
-        return comic;
-    }
-
-    public Story getStory() {
-        return story;
-    }
-
-    public Event getEvent() {
-        return event;
-    }
-
-    public Series getSeries() {
-        return series;
-    }
+    private final Long id;
+    private final String name;
+    private final String description;
+    private final LocalDateTime modified = LocalDateTime.now();
+    private final String resourceURI;
+    private final Image thumbnail;
+    private final List<Url> urls;
+    private final Comic comic;
+    private final Story story;
+    private final Event event;
+    private final Series series;
 }
