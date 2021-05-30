@@ -4,9 +4,9 @@ import java.util.List;
 
 public final class StoryResponse {
     private final Integer available;
-    private final Integer returned;
     private final String collectionURI;
     private final List<StorySummaryResponse> items;
+    private final Integer returned;
 
     public StoryResponse(Integer available, Integer returned, String collectionURI, List<StorySummaryResponse> items) {
         this.available = available;

@@ -11,7 +11,9 @@ import java.util.List;
 public final class ComicConverter {
     public static ComicResponse fromComicToComicResponse(Comic comic) {
         return new ComicResponse(
-                comic.getAvailable(), comic.getReturned(), comic.getCollectionURI(),
+                comic.getItems().size(),
+                comic.getItems().size(),
+                comic.getCollectionURI(),
                 fromComicSummaryToComicSummaryResponse(comic.getItems())
         );
     }

@@ -1,20 +1,43 @@
 package br.com.tony.marvelapi.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 public final class CharacterResponse {
+    @JsonProperty(value = "id")
     private final Long id;
+
+    @JsonProperty(value = "name")
     private final String name;
+
+    @JsonProperty(value = "description")
     private final String description;
+
+    @JsonProperty(value = "modified")
     private final LocalDateTime modified = LocalDateTime.now();
-    private final String resourceURI;
+
+    @JsonProperty(value = "thumbnail")
     private final ImageResponse imageResponse;
-    private final List<UrlResponse> urlResponses;
+
+    @JsonProperty(value = "resourceURI")
+    private final String resourceURI;
+
+    @JsonProperty(value = "comics")
     private final ComicResponse comicResponse;
-    private final StoryResponse storyResponse;
-    private final EventResponse eventResponse;
+
+    @JsonProperty(value = "series")
     private final SeriesResponse seriesResponse;
+
+    @JsonProperty(value = "stories")
+    private final StoryResponse storyResponse;
+
+    @JsonProperty(value = "events")
+    private final EventResponse eventResponse;
+
+    @JsonProperty(value = "urls")
+    private final List<UrlResponse> urlResponses;
 
     private CharacterResponse(Builder builder) {
         this.id = builder.id;

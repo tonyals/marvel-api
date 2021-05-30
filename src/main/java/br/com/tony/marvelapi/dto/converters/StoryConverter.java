@@ -10,8 +10,11 @@ import java.util.List;
 
 public final class StoryConverter {
     public static StoryResponse fromStoryToStoryResponse(Story story) {
-        return new StoryResponse(story.getAvailable(), story.getReturned(),
-                story.getCollectionURI(), fromStorySummaryToStorySummaryResponse(
+        return new StoryResponse(
+                story.getItems().size(),
+                story.getItems().size(),
+                story.getCollectionURI(),
+                fromStorySummaryToStorySummaryResponse(
                 story.getItems()
         ));
     }

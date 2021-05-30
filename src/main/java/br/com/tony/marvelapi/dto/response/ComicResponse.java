@@ -4,9 +4,9 @@ import java.util.List;
 
 public final class ComicResponse {
     private final Integer available;
-    private final Integer returned;
     private final String collectionURI;
     private final List<ComicSummaryResponse> items;
+    private final Integer returned;
 
     public ComicResponse(Integer available, Integer returned, String collectionURI, List<ComicSummaryResponse> items) {
         this.available = available;

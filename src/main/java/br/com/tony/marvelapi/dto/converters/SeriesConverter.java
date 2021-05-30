@@ -10,8 +10,12 @@ import java.util.List;
 
 public final class SeriesConverter {
     public static SeriesResponse fromSeriesToSeriesResponse(Series series) {
-        return new SeriesResponse(series.getAvailable(), series.getReturned(), series.getCollectionURI(),
-                fromSeriesSummaryToSeriesSummaryResponse(series.getItems()));
+        return new SeriesResponse(
+                series.getItems().size(),
+                series.getItems().size(),
+                series.getCollectionURI(),
+                fromSeriesSummaryToSeriesSummaryResponse(series.getItems())
+        );
     }
 
     private static List<SeriesSummaryResponse> fromSeriesSummaryToSeriesSummaryResponse(List<SeriesSummary> seriesSummaries) {

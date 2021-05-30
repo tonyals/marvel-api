@@ -10,8 +10,12 @@ import java.util.List;
 
 public final class EventConverter {
     public static EventResponse fromEventToEventResponse(Event event) {
-        return new EventResponse(event.getAvailable(), event.getReturned(),
-                event.getCollectionURI(), fromEventSummaryToEventSummaryResponse(event.getItems()));
+        return new EventResponse(
+                event.getItems().size(),
+                event.getItems().size(),
+                event.getCollectionURI(),
+                fromEventSummaryToEventSummaryResponse(event.getItems())
+        );
     }
 
     private static List<EventSummaryResponse> fromEventSummaryToEventSummaryResponse(List<EventSummary> eventSummaries) {

@@ -4,9 +4,9 @@ import java.util.List;
 
 public final class EventResponse {
     private final Integer available;
-    private final Integer returned;
     private final String collectionURI;
     private final List<EventSummaryResponse> items;
+    private final Integer returned;
 
     public EventResponse(Integer available, Integer returned, String collectionURI, List<EventSummaryResponse> items) {
         this.available = available;
