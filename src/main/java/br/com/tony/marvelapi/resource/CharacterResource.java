@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @RestController
 @RequestMapping("/v1/public/characters")
 public class CharacterResource {
@@ -35,6 +37,25 @@ public class CharacterResource {
                 charactersPages.getTotalElements(),
                 charactersPages.getNumberOfElements(),
                 charactersPages.getContent());
+
+        var response = new CharacterDataWrapper<>(
+                HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
+                characterDataContainer
+        );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{characterId}")
+    public ResponseEntity<CharacterDataWrapper<CharacterDataContainer<CharacterResponse>>> getById(
+            @PathVariable Long characterId) {
+        CharacterResponse characterResponse = this.characterService.getById(characterId);
+        var characterDataContainer = new CharacterDataContainer<>(
+                0,
+                20,
+                1,
+                1,
+                Collections.singletonList(characterResponse));
 
         var response = new CharacterDataWrapper<>(
                 HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
