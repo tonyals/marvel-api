@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public final class ComicList {
+public class ComicList {
     private final Integer available;
     private final String collectionURI;
     private final List<ComicSummary> items;

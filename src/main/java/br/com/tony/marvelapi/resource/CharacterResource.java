@@ -3,6 +3,7 @@ package br.com.tony.marvelapi.resource;
 import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
 import br.com.tony.marvelapi.dto.response.ComicResponse;
+import br.com.tony.marvelapi.dto.response.EventResponse;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataContainer;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataWrapper;
 import br.com.tony.marvelapi.service.CharacterService;
@@ -69,13 +70,32 @@ public class CharacterResource {
     @GetMapping("/{characterId}/comics")
     public ResponseEntity<CharacterDataWrapper<CharacterDataContainer<ComicResponse>>> getComicByCharacterId(
             @PathVariable Long characterId) {
-        ComicResponse comicResponse = this.characterService.getByCharacterId(characterId);
+        ComicResponse comicResponse = this.characterService.getComicByCharacterId(characterId);
         var characterDataContainer = new CharacterDataContainer<>(
                 0,
                 20,
                 1,
                 1,
                 Collections.singletonList(comicResponse));
+
+        var response = new CharacterDataWrapper<>(
+                HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
+                characterDataContainer
+        );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{characterId}/events")
+    public ResponseEntity<CharacterDataWrapper<CharacterDataContainer<EventResponse>>> getEventByCharacterId(
+            @PathVariable Long characterId) {
+        EventResponse eventResponse = this.characterService.getEventByCharacterId(characterId);
+        var characterDataContainer = new CharacterDataContainer<>(
+                0,
+                20,
+                1,
+                1,
+                Collections.singletonList(eventResponse));
 
         var response = new CharacterDataWrapper<>(
                 HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),

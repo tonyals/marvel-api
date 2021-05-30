@@ -14,7 +14,7 @@ public final class CharacterConverter {
                 .urlResponses(UrlConverter.fromUrlToUrlResponse(character.getUrls()))
                 .comicList(ComicConverter.fromComicToComicList(character.getComic()))
                 .storyList(StoryConverter.fromStoryToStoryResponse(character.getStory()))
-                .eventList(EventConverter.fromEventToEventResponse(character.getEvent()))
+                .eventList(EventConverter.fromEventToEventList(character.getEvent()))
                 .seriesList(SeriesConverter.fromSeriesToSeriesResponse(character.getSeries()))
                 .build();
     }
