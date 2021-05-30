@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public final class SeriesList {
+public class SeriesList {
     private final Integer available;
     private final String collectionURI;
     private final List<SeriesSummary> items;

@@ -4,6 +4,7 @@ import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
 import br.com.tony.marvelapi.dto.response.ComicResponse;
 import br.com.tony.marvelapi.dto.response.EventResponse;
+import br.com.tony.marvelapi.dto.response.SeriesResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +14,5 @@ public interface CharacterService {
     CharacterResponse getById(Long id);
     ComicResponse getComicByCharacterId(Long characterId);
     EventResponse getEventByCharacterId(Long characterId);
+    SeriesResponse getSeriesByCharacterId(Long characterId);
 }

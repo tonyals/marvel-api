@@ -4,6 +4,7 @@ import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
 import br.com.tony.marvelapi.dto.response.ComicResponse;
 import br.com.tony.marvelapi.dto.response.EventResponse;
+import br.com.tony.marvelapi.dto.response.SeriesResponse;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataContainer;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataWrapper;
 import br.com.tony.marvelapi.service.CharacterService;
@@ -96,6 +97,25 @@ public class CharacterResource {
                 1,
                 1,
                 Collections.singletonList(eventResponse));
+
+        var response = new CharacterDataWrapper<>(
+                HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
+                characterDataContainer
+        );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{characterId}/series")
+    public ResponseEntity<CharacterDataWrapper<CharacterDataContainer<SeriesResponse>>> getSeriesByCharacterId(
+            @PathVariable Long characterId) {
+        SeriesResponse seriesResponse = this.characterService.getSeriesByCharacterId(characterId);
+        var characterDataContainer = new CharacterDataContainer<>(
+                0,
+                20,
+                1,
+                1,
+                Collections.singletonList(seriesResponse));
 
         var response = new CharacterDataWrapper<>(
                 HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),

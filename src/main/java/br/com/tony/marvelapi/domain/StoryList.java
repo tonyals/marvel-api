@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public final class StoryList {
+public class StoryList {
     private final Integer available;
     private final String collectionURI;
     private final List<StorySummary> items;

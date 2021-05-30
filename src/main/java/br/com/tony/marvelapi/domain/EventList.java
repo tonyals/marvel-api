@@ -7,7 +7,7 @@ import java.util.List;
 
 @Builder
 @Getter
-public final class EventList {
+public class EventList {
     private final Integer available;
     private final String collectionURI;
     private final List<EventSummary> items;

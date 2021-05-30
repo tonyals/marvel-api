@@ -4,9 +4,11 @@ import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.converters.CharacterConverter;
 import br.com.tony.marvelapi.dto.converters.ComicConverter;
 import br.com.tony.marvelapi.dto.converters.EventConverter;
+import br.com.tony.marvelapi.dto.converters.SeriesConverter;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
 import br.com.tony.marvelapi.dto.response.ComicResponse;
 import br.com.tony.marvelapi.dto.response.EventResponse;
+import br.com.tony.marvelapi.dto.response.SeriesResponse;
 import br.com.tony.marvelapi.exception.NotFoundException;
 import br.com.tony.marvelapi.mocks.CharacterMock;
 import org.springframework.data.domain.Page;
@@ -58,5 +60,14 @@ public class CharacterServiceImpl implements CharacterService {
                 .findFirst().orElseThrow(() -> new NotFoundException("Não encontrado"));
 
         return EventConverter.fromEventToEventResponse(result.getEvent());
+    }
+
+    @Override
+    public SeriesResponse getSeriesByCharacterId(Long characterId) {
+        Predicate<Character> findById = c -> c.getId().compareTo(characterId) == 0;
+        Character result = CharacterMock.characters().stream().filter(findById)
+                .findFirst().orElseThrow(() -> new NotFoundException("Não encontrado"));
+
+        return SeriesConverter.fromSeriesToSeriesResponse(result.getSeries());
     }
 }
