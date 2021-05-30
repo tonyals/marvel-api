@@ -1,6 +1,5 @@
 package br.com.tony.marvelapi.mocks;
 
-import br.com.tony.marvelapi.domain.Image;
 import br.com.tony.marvelapi.domain.Url;
 
 import java.util.Arrays;

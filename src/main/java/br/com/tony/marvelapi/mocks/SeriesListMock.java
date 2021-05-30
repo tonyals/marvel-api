@@ -1,7 +1,6 @@
 package br.com.tony.marvelapi.mocks;
 
 import br.com.tony.marvelapi.domain.SeriesList;
-import br.com.tony.marvelapi.domain.SeriesSummary;
 
 import java.util.Collections;
 
@@ -12,11 +11,7 @@ public class SeriesListMock {
                 .returned(10)
                 .available(10)
                 .collectionURI("collection uri")
-                .items(Collections.singletonList(SeriesSummary.builder()
-                        .id(1L)
-                        .name("name here")
-                        .resourceURI("resource uri")
-                        .build()))
+                .items(Collections.singletonList(SeriesSummaryMock.createSeriesSummary()))
                 .build();
     }
 }
