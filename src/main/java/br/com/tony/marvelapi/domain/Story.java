@@ -1,17 +1,15 @@
 package br.com.tony.marvelapi.domain;
 
-import javax.persistence.*;
+import lombok.Builder;
+
 import java.util.List;
 
-@Entity
+@Builder
 public class Story {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer available;
     private Integer returned;
     private String collectionURI;
-    @OneToMany(cascade=CascadeType.PERSIST)
     private List<StorySummary> items;
 
     public Long getId() {

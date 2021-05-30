@@ -1,19 +1,16 @@
 package br.com.tony.marvelapi.domain;
 
-import javax.persistence.*;
+import lombok.Builder;
+
 import java.util.List;
 
-@Entity
+@Builder
 public class Comic {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Integer available;
-    private Integer returned;
-    private String collectionURI;
-
-    @OneToMany(cascade=CascadeType.PERSIST)
-    private List<ComicSummary> items;
+    private final Long id;
+    private final Integer available;
+    private final Integer returned;
+    private final String collectionURI;
+    private final List<ComicSummary> items;
 
     public Long getId() {
         return id;
