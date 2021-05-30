@@ -11,7 +11,10 @@ public class UrlConverter {
         List<UrlResponse> urlResponses = new ArrayList<>();
 
         urls.forEach(url -> urlResponses.add(
-                new UrlResponse(url.getType(), url.getUrl())
+                UrlResponse.builder()
+                        .url(url.getUrl())
+                        .type(url.getType())
+                        .build()
         ));
 
         return urlResponses;

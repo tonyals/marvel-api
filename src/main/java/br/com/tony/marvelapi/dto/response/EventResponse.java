@@ -8,6 +8,7 @@ import lombok.Getter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -44,4 +45,17 @@ public final class EventResponse {
     private final EventSummary next;
     @JsonProperty(value = "previous")
     private final EventSummary previous;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EventResponse that = (EventResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(resourceURI, that.resourceURI) && Objects.equals(urls, that.urls) && Objects.equals(thumbnail, that.thumbnail) && Objects.equals(comicList, that.comicList) && Objects.equals(storyList, that.storyList) && Objects.equals(seriesList, that.seriesList) && Objects.equals(characterList, that.characterList) && Objects.equals(creatorList, that.creatorList) && Objects.equals(next, that.next) && Objects.equals(previous, that.previous);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, resourceURI, urls, thumbnail, comicList, storyList, seriesList, characterList, creatorList, next, previous);
+    }
 }

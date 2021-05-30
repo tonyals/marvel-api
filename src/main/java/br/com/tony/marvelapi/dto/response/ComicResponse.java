@@ -7,6 +7,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -106,4 +107,17 @@ public final class ComicResponse {
 
     @JsonProperty(value = "items")
     private final List<ComicSummary> items;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ComicResponse that = (ComicResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(digitalId, that.digitalId) && Objects.equals(title, that.title) && Objects.equals(issueNumber, that.issueNumber) && Objects.equals(variantDescription, that.variantDescription) && Objects.equals(description, that.description) && Objects.equals(isbn, that.isbn) && Objects.equals(upc, that.upc) && Objects.equals(diamondCode, that.diamondCode) && Objects.equals(ean, that.ean) && Objects.equals(issn, that.issn) && Objects.equals(format, that.format) && Objects.equals(pageCount, that.pageCount) && Objects.equals(textObjects, that.textObjects) && Objects.equals(resourceURI, that.resourceURI) && Objects.equals(urlResponses, that.urlResponses) && Objects.equals(series, that.series) && Objects.equals(variants, that.variants) && Objects.equals(collections, that.collections) && Objects.equals(collectedIssues, that.collectedIssues) && Objects.equals(dates, that.dates) && Objects.equals(prices, that.prices) && Objects.equals(imageResponse, that.imageResponse) && Objects.equals(creatorsList, that.creatorsList) && Objects.equals(charactersList, that.charactersList) && Objects.equals(storyList, that.storyList) && Objects.equals(eventList, that.eventList) && Objects.equals(available, that.available) && Objects.equals(returned, that.returned) && Objects.equals(collectionURI, that.collectionURI) && Objects.equals(items, that.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, digitalId, title, issueNumber, variantDescription, description, isbn, upc, diamondCode, ean, issn, format, pageCount, textObjects, resourceURI, urlResponses, series, variants, collections, collectedIssues, dates, prices, imageResponse, creatorsList, charactersList, storyList, eventList, available, returned, collectionURI, items);
+    }
 }

@@ -10,6 +10,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -46,4 +47,17 @@ public final class CharacterResponse {
 
     @JsonProperty(value = "urls")
     private final List<UrlResponse> urlResponses;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CharacterResponse that = (CharacterResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(imageResponse, that.imageResponse) && Objects.equals(resourceURI, that.resourceURI) && Objects.equals(comicList, that.comicList) && Objects.equals(seriesList, that.seriesList) && Objects.equals(storyList, that.storyList) && Objects.equals(eventList, that.eventList) && Objects.equals(urlResponses, that.urlResponses);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, imageResponse, resourceURI, comicList, seriesList, storyList, eventList, urlResponses);
+    }
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -30,4 +31,17 @@ public class Series {
     private final Integer returned;
     private final String collectionURI;
     private final List<SeriesSummary> items;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Series series = (Series) o;
+        return Objects.equals(id, series.id) && Objects.equals(title, series.title) && Objects.equals(description, series.description) && Objects.equals(resourceURI, series.resourceURI) && Objects.equals(urls, series.urls) && Objects.equals(startYear, series.startYear) && Objects.equals(endYear, series.endYear) && Objects.equals(rating, series.rating) && Objects.equals(modified, series.modified) && Objects.equals(thumbnail, series.thumbnail) && Objects.equals(comicLists, series.comicLists) && Objects.equals(storyLists, series.storyLists) && Objects.equals(eventLists, series.eventLists) && Objects.equals(characterList, series.characterList) && Objects.equals(creatorList, series.creatorList) && Objects.equals(next, series.next) && Objects.equals(previous, series.previous) && Objects.equals(available, series.available) && Objects.equals(returned, series.returned) && Objects.equals(collectionURI, series.collectionURI) && Objects.equals(items, series.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, resourceURI, urls, startYear, endYear, rating, modified, thumbnail, comicLists, storyLists, eventLists, characterList, creatorList, next, previous, available, returned, collectionURI, items);
+    }
 }

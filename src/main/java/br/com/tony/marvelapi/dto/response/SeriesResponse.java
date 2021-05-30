@@ -7,6 +7,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Builder
 @Getter
@@ -61,4 +62,17 @@ public final class SeriesResponse {
 
     @JsonProperty(value = "previous")
     private final SeriesSummary previous;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SeriesResponse that = (SeriesResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(resourceURI, that.resourceURI) && Objects.equals(urls, that.urls) && Objects.equals(startYear, that.startYear) && Objects.equals(endYear, that.endYear) && Objects.equals(rating, that.rating) && Objects.equals(thumbnail, that.thumbnail) && Objects.equals(comicLists, that.comicLists) && Objects.equals(storyLists, that.storyLists) && Objects.equals(eventLists, that.eventLists) && Objects.equals(characterList, that.characterList) && Objects.equals(creatorList, that.creatorList) && Objects.equals(next, that.next) && Objects.equals(previous, that.previous);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, resourceURI, urls, startYear, endYear, rating, thumbnail, comicLists, storyLists, eventLists, characterList, creatorList, next, previous);
+    }
 }
