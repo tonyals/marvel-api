@@ -1,10 +1,7 @@
 package br.com.tony.marvelapi.resource;
 
 import br.com.tony.marvelapi.domain.Character;
-import br.com.tony.marvelapi.dto.response.CharacterResponse;
-import br.com.tony.marvelapi.dto.response.ComicResponse;
-import br.com.tony.marvelapi.dto.response.EventResponse;
-import br.com.tony.marvelapi.dto.response.SeriesResponse;
+import br.com.tony.marvelapi.dto.response.*;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataContainer;
 import br.com.tony.marvelapi.resource.wrapper.CharacterDataWrapper;
 import br.com.tony.marvelapi.service.CharacterService;
@@ -116,6 +113,25 @@ public class CharacterResource {
                 1,
                 1,
                 Collections.singletonList(seriesResponse));
+
+        var response = new CharacterDataWrapper<>(
+                HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
+                characterDataContainer
+        );
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/{characterId}/stories")
+    public ResponseEntity<CharacterDataWrapper<CharacterDataContainer<StoryResponse>>> getStoryByCharacterId(
+            @PathVariable Long characterId) {
+        StoryResponse storyResponse = this.characterService.getStoryByCharacterId(characterId);
+        var characterDataContainer = new CharacterDataContainer<>(
+                0,
+                20,
+                1,
+                1,
+                Collections.singletonList(storyResponse));
 
         var response = new CharacterDataWrapper<>(
                 HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),

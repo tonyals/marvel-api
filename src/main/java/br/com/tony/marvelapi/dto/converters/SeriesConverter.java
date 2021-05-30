@@ -9,7 +9,7 @@ import br.com.tony.marvelapi.dto.response.SeriesSummaryResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class SeriesConverter {
+public class SeriesConverter {
 
     public static SeriesResponse fromSeriesToSeriesResponse(Series series) {
         return SeriesResponse.builder()

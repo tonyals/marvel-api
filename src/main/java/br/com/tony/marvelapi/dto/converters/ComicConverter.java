@@ -9,7 +9,7 @@ import br.com.tony.marvelapi.dto.response.ComicSummaryResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ComicConverter {
+public class ComicConverter {
     public static ComicResponse fromComicToComicResponse(Comic comic) {
         return ComicResponse.builder()
                 .id(comic.getId())

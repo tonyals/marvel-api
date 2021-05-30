@@ -36,27 +36,9 @@ public class ComicMock {
                         .name("serie summary name")
                         .resourceURI("resource uri")
                         .build())
-                .variants(Collections.singletonList(
-                        ComicSummary.builder()
-                                .id(1L)
-                                .name("name comic")
-                                .resourceURI("resource uri")
-                                .build()
-                ))
-                .collections(Collections.singletonList(
-                        ComicSummary.builder()
-                                .id(1L)
-                                .name("name comic")
-                                .resourceURI("resource uri")
-                                .build()
-                ))
-                .collectedIssues(Collections.singletonList(
-                        ComicSummary.builder()
-                                .id(1L)
-                                .name("name comic")
-                                .resourceURI("resource uri")
-                                .build()
-                ))
+                .variants(Collections.singletonList(ComicSummaryMock.createComicSummary()))
+                .collections(Collections.singletonList(ComicSummaryMock.createComicSummary()))
+                .collectedIssues(Collections.singletonList(ComicSummaryMock.createComicSummary()))
                 .dates(Collections.singletonList(
                         ComicDate.builder()
                                 .type("Type here")
@@ -76,13 +58,7 @@ public class ComicMock {
                 .available(10)
                 .returned(10)
                 .collectionURI("collection uri")
-                .items(Collections.singletonList(
-                        ComicSummary.builder()
-                                .id(1L)
-                                .name("name comic")
-                                .resourceURI("resource uri")
-                                .build()
-                ))
+                .items(Collections.singletonList(ComicSummaryMock.createComicSummary()))
                 .build();
     }
 }

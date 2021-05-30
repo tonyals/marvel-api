@@ -9,7 +9,7 @@ import br.com.tony.marvelapi.dto.response.EventSummaryResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class EventConverter {
+public class EventConverter {
 
     public static EventResponse fromEventToEventResponse(Event event) {
         return EventResponse.builder()
