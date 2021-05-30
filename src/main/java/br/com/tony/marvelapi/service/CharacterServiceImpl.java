@@ -2,7 +2,9 @@ package br.com.tony.marvelapi.service;
 
 import br.com.tony.marvelapi.domain.Character;
 import br.com.tony.marvelapi.dto.converters.CharacterConverter;
+import br.com.tony.marvelapi.dto.converters.ComicConverter;
 import br.com.tony.marvelapi.dto.response.CharacterResponse;
+import br.com.tony.marvelapi.dto.response.ComicList;
 import br.com.tony.marvelapi.exception.NotFoundException;
 import br.com.tony.marvelapi.mocks.CharacterMock;
 import br.com.tony.marvelapi.repository.CharacterRepository;
@@ -11,8 +13,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -45,5 +45,14 @@ public class CharacterServiceImpl implements CharacterService {
                 .findFirst().orElseThrow(() -> new NotFoundException("Não encontrado"));
 
         return CharacterConverter.fromCharacterToCharacterResponse(result);
+    }
+
+    @Override
+    public ComicList getByCharacterId(Long characterId) {
+        Predicate<Character> findById = c -> c.getId().compareTo(characterId) == 0;
+        Character result = CharacterMock.characters().stream().filter(findById)
+                .findFirst().orElseThrow(() -> new NotFoundException("Não encontrado"));
+
+        return ComicConverter.fromComicToComicResponse(result.getComic());
     }
 }
