@@ -1,4 +1,4 @@
-package br.com.tony.marvelapi.dto.converters;
+package br.com.tony.marvelapi.converters;
 
 import br.com.tony.marvelapi.domain.Comic;
 import br.com.tony.marvelapi.dto.response.ComicResponse;

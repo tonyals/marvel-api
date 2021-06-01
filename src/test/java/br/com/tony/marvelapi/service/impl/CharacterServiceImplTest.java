@@ -1,7 +1,7 @@
 package br.com.tony.marvelapi.service.impl;
 
 import br.com.tony.marvelapi.domain.Character;
-import br.com.tony.marvelapi.dto.converters.*;
+import br.com.tony.marvelapi.converters.*;
 import br.com.tony.marvelapi.exception.NotFoundException;
 import br.com.tony.marvelapi.mocks.CharacterMock;
 import br.com.tony.marvelapi.service.CharacterService;
